@@ -28,3 +28,41 @@ squareDigits(num);
 console.log("Solution:", squareDigits(num))
 /* that was a solution for the "Square Every Digit" kata on CodeWars 
 https://www.codewars.com/kata/546e2562b03326a88e000020/javascript */
+
+/* the following is a solution for the "Array.diff" kata on CodeWars
+https://www.codewars.com/kata/523f5d21c841566fde000009/javascript */
+const a = [-1, 18, 16, -12, -2, 4, 3, 13, -5, 8];
+const b = [-1, 18, 16, -12, -2, 4, 3];
+const c = [13, -5, 8];
+
+function arrayDiff(a, b) {
+    let array = a.map(Number);
+    console.log("Here are all the numbers:", array);
+
+    let remove = b.map(Number);
+    console.log("Remove this number:", remove);
+
+    let newArr = [];
+
+    for (i = 0; i < array.length; i++) {
+        let matchingValue = false;
+
+        for (k = 0; k < remove.length; k++) {
+            if (array[i] === remove[k]) {
+                matchingValue = true;
+            }
+        }
+
+        if (!matchingValue) {
+            newArr.push(array[i])
+        }
+    }
+
+    return newArr;
+}
+
+arrayDiff(a, b);
+console.log("Solution:", arrayDiff(a, b));
+console.log("Should Match:", c);
+/* that was a solution for the "Array.diff" kata on CodeWars
+https://www.codewars.com/kata/523f5d21c841566fde000009/javascript */

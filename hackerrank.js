@@ -180,3 +180,64 @@ function flippingBits(flipBit) {
 flippingBits(flipBit);
 
 lineBreak();
+
+/* Week 1 - Problem 7: Diagonal Difference */
+
+const diaDiffArr = [
+    [11, 2 , 4],
+    [4, 5, 6],
+    [10, 8, -12]
+]
+
+const diaDiffArrDeux = [
+    [12, 6, 7, 34, -5],
+    [15, -9, 1, 14, 8],
+    [74, 5, -15, 2, 0],
+    [9, -14, 25, 1, 9],
+    [42, 9, -6, 18, 7]
+]
+
+/* this attempt only works for 3x3 matrix */
+function diagonalDifferenceFailure(diaDiffArr) {
+    // Write your code here
+    let topLeft = Number(diaDiffArr[0][0])
+    let deadCenter = Number(diaDiffArr[1][1])
+    let botRight = Number(diaDiffArr[2][2])
+    let priDia = topLeft + deadCenter + botRight;
+    
+    let topRight = Number(diaDiffArr[0][2])
+    let botLeft = Number(diaDiffArr[2][0])
+    let secDia = topRight + deadCenter + botLeft;
+    
+    let diffAb = Math.abs(priDia - secDia);
+    
+    console.log("Absolute Difference:", diffAb);
+
+    return diffAb
+}
+
+//diagonalDifferenceFailure(diaDiffArr);
+
+function diagonalDifference(diaDiffArrDeux) {
+    let priDia = 0
+    let secDia = 0
+
+    for (let i = 0; i < diaDiffArrDeux.length; i++) {
+        priDia += diaDiffArrDeux[i][i];
+        secDia += diaDiffArrDeux[i][diaDiffArrDeux.length - 1 - i];
+    }
+    console.log("Primary Diagonal Sum:", priDia);
+    console.log("Secondary Diagonal Sum:", secDia);
+
+    const abDiff = Math.abs(priDia - secDia);
+    
+    console.log("Absolute Difference:", abDiff)
+    return abDiff;
+}
+
+diagonalDifference(diaDiffArrDeux);
+
+lineBreak();
+
+/* Week 1 - Problem 8: Counting Sort 1 */
+

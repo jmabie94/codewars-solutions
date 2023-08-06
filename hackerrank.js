@@ -106,6 +106,8 @@ timeConversion(timeString);
 
 lineBreak();
 
+/* Week 1 - Problem 4: Sparse Arrays */
+
 const sparseStrings = ['ab', 'ab', 'abc'];
 const sparseQueries = ['ab', 'abc', 'bc'];
 

@@ -131,3 +131,16 @@ matchingStrings(sparseStrings, sparseQueries);
 
 lineBreak();
 
+/* Week 1 - Problem 5: Lonely Integer */
+
+const lonelyArray = [1, 2, 3, 4, 3, 2, 1];
+
+function lonelyInteger(lonelyArray) {
+    const lonelyBoi = 
+    lonelyArray.filter((v, i) => lonelyArray.indexOf(v) === lonelyArray.lastIndexOf(v));
+
+    console.log("Which is the loneliest Number?", Number(lonelyBoi[0]));
+    return Number(lonelyBoi[0]);
+}
+
+lonelyInteger(lonelyArray);

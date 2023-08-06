@@ -144,3 +144,39 @@ function lonelyInteger(lonelyArray) {
 }
 
 lonelyInteger(lonelyArray);
+
+lineBreak();
+
+/* Week 1 - Problem 6: Flipping Bits */
+
+const flipBit = 9
+
+function flippingBits(flipBit) {
+
+    let stringMe = flipBit.toString(2);
+    let longMe = 32-stringMe.length;
+    let longerBro = "";
+
+    for (let i = 0; i < longMe; i++) {
+        longerBro += "0";
+    }
+
+    let longString = longerBro.concat(stringMe);
+    let flipMe = "";
+
+    for (let i of longString) {
+        if (i === "0") {
+            flipMe += "1";
+        } else if (i === "1") {
+            flipMe += "0";
+        }
+    }
+    
+    console.log("Flipped Number:", parseInt(flipMe, 2));
+
+    return parseInt(flipMe, 2);
+}
+
+flippingBits(flipBit);
+
+lineBreak();

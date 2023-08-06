@@ -52,12 +52,12 @@ const miniMaxArr = [7, 69, 2, 221, 8974]
 function miniMaxSum(miniMaxArr) {
     // Write your code here
     miniMaxArr.sort();
-    
+
     let miniSum = miniMaxArr[0] + miniMaxArr[1] + miniMaxArr[2] + miniMaxArr[3]
-    let maxSum = miniMaxArr [1] + miniMaxArr[2] + miniMaxArr[3] + miniMaxArr[4]
-    
+    let maxSum = miniMaxArr[1] + miniMaxArr[2] + miniMaxArr[3] + miniMaxArr[4]
+
     let res = `${miniSum} ${maxSum}`
-    
+
     process.stdout.write("miniMaxSum:")
     process.stdout.write(res);
 }
@@ -105,3 +105,27 @@ function timeConversion(timeString) {
 timeConversion(timeString);
 
 lineBreak();
+
+const sparseStrings = ['ab', 'ab', 'abc'];
+const sparseQueries = ['ab', 'abc', 'bc'];
+
+function matchingStrings(sparseStrings, sparseQueries) {
+    let res = []
+
+    for (i = 0; i < sparseQueries.length; i++) {
+        res[i] = 0;
+        for (k = 0; k < sparseStrings.length; k++) {
+            if (sparseQueries[i] === sparseStrings[k]) {
+                res[i]++;
+            }
+        }
+    }
+
+    console.log("Matching Strings:", res);
+    return res;
+}
+
+matchingStrings(sparseStrings, sparseQueries);
+
+lineBreak();
+

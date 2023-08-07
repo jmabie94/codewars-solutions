@@ -298,8 +298,12 @@ lineBreak();
 /* Week 1 - Problem 10: Permuting Two Arrays */
 
 const challenger = 81;
-const firstArr = [36, 25, 50, 69, 76, 21, 42, 68, 61, 59, 1, 17, 10, 69, 57, 71, 12, 13, 53, 67, 64, 22, 66, 61, 77, 11, 59, 71, 39, 2, 46, 36, 69, 58, 73, 68, 20, 29, 10, 31, 41, 16, 23, 25, 44, 25, 26, 39, 21, 67, 12, 80, 7, 41, 21, 46, 19, 5, 20, 59, 24, 66, 6, 71, 62, 8, 4, 53, 51, 37, 68, 13, 30, 40, 26, 10, 29, 12, 7];
-const secondArr = [18, 65, 11, 75, 16, 26, 67, 63, 16, 61, 66, 76, 25, 68, 25, 65, 77, 15, 20, 54, 79, 27, 46, 55, 55, 37, 29, 88, 32, 66, 85, 22, 20, 49, 74, 85, 42, 75, 11, 18, 41, 80, 63, 59, 77, 63, 24, 83, 25, 69, 13, 52, 22, 42, 71, 45, 70, 45, 57, 43, 78, 17, 63, 16, 62, 8, 71, 22, 16, 39, 81, 62, 20, 9, 21, 56, 76, 46, 37];
+const firstArr = [
+    36, 25, 50, 69, 76, 21, 42, 68, 61, 59, 1, 17, 10, 69, 57, 71, 12, 13, 53, 67, 64, 22, 66, 61, 77, 11, 59, 71, 39, 2, 46, 36, 69, 58, 73, 68, 20, 29, 10, 31, 41, 16, 23, 25, 44, 25, 26, 39, 21, 67, 12, 80, 7, 41, 21, 46, 19, 5, 20, 59, 24, 66, 6, 71, 62, 8, 4, 53, 51, 37, 68, 13, 30, 40, 26, 10, 29, 12, 7
+];
+const secondArr = [
+    18, 65, 11, 75, 16, 26, 67, 63, 16, 61, 66, 76, 25, 68, 25, 65, 77, 15, 20, 54, 79, 27, 46, 55, 55, 37, 29, 88, 32, 66, 85, 22, 20, 49, 74, 85, 42, 75, 11, 18, 41, 80, 63, 59, 77, 63, 24, 83, 25, 69, 13, 52, 22, 42, 71, 45, 70, 45, 57, 43, 78, 17, 63, 16, 62, 8, 71, 22, 16, 39, 81, 62, 20, 9, 21, 56, 76, 46, 37
+];
 
 function twoArrays(challenger, firstArr, secondArr) {
     let result = [];
@@ -339,9 +343,33 @@ const birthDate = 4;
 const birthMonth = 2;
 
 function birthday(chocoArr, birthDate, birthMonth) {
-    // write code here
+    let combos = 0;
+
+    if (chocoArr.length < birthMonth) {
+        return 0;
+    }
+
+    for (let i = 0; i < chocoArr.length; i++) {
+        let total = 0;
+        for (let k = 0; k < birthMonth; k++) {
+            total += chocoArr[i-k];
+        }
+        if (total === birthDate) {
+            combos++;
+        }
+    }
+
+    console.log("Total Combinations:", combos);
+    return combos;
+
 }
 
 birthday(chocoArr, birthDate, birthMonth);
 
 lineBreak();
+
+/* Week 1 - Problem 12: XOR Strings 2 */
+/* BUGGED JAVASCRIPT - NO CODE AVAILABLE TO DEBUG */
+
+/* Week 1 - Mock Test */
+

@@ -262,3 +262,71 @@ function countingSort(countSortula) {
 countingSort(countSortula);
 
 lineBreak();
+
+/* Week 1 - Problem 9: Pangrams */
+
+const testString = "We promptly judged antique ivory buckles for the next prize";
+
+function pangrams(testString) {
+    let result = false;
+    let response = "";
+
+    let alphabetRegex = /[A-Z]/g
+
+    const isPangram = new Set(testString.toUpperCase().match(alphabetRegex)).size;
+
+    if (isPangram === 26) {
+        result = true
+    } else {
+        result = false
+    }
+
+    if (result === false) {
+        response = "not pangram";
+    } else {
+        response = "pangram";
+    }
+
+    console.log("Response:", response);
+    return response;
+}
+
+pangrams(testString);
+
+lineBreak();
+
+/* Week 1 - Problem 10: Permuting Two Arrays */
+
+const challenger = 5;
+const firstArr = [1, 2, 2, 1];
+const secondArr = [3, 3, 3, 4];
+
+function twoArrays(challenger, firstArr, secondArr) {
+    let result = [];
+
+    let firstSort = firstArr.sort();
+    let secondSort = secondArr.sort().reverse();
+
+    for (let i = 0; i < firstArr.length; i++) {
+        if (firstSort[i] + secondSort[i] >= challenger) {
+            result.push("true");
+        } else {
+            result.push("false");
+        }
+    }
+
+    let response = ""
+
+    if (result.includes("false")) {
+        response = "NO"
+    } else {
+        response = "YES"
+    }
+
+    console.log("Is Every A[i] + B[i] greater than or equal to k?", response);
+    return response
+}
+
+/* this is still failing some of the test cases, need to figure out the problem! */
+
+twoArrays(challenger, firstArr, secondArr);

@@ -373,3 +373,62 @@ lineBreak();
 
 /* Week 1 - Mock Test */
 
+/* Mock Test Question 1 - Find The Median */
+
+const medArr = [0, 1, 2, 4, 6, 5, 3, 7];
+/* 0 1 2 3 4 5 6 7 */
+
+function findMedian(medArr) {
+    let sortArr = medArr.sort((a, b) => a - b);
+    let midEl = Math.floor(sortArr.length / 2)
+
+    let medInt = 0
+
+    if (sortArr.length % 2 === 0) {
+        medInt = (sortArr[midEl - 1] + sortArr[midEl]) / 2
+    } else {
+        medInt = sortArr[midEl]
+    }
+
+    console.log("Median:", medInt)
+    return medInt
+}
+
+findMedian(medArr);
+
+lineBreak();
+
+/* Mock Test Question 2 - Flipping The Matrix */
+
+const matrixFlip = [
+    [112, 42, 83, 119],
+    [56, 125, 56, 49],
+    [15, 78, 101, 43],
+    [62, 98, 114, 108]
+]
+
+/* I want to see if I can find a way to make this simplified */
+function flippingMatrix(matrixFlip) {
+    let subMatrix = matrixFlip.length / 2;
+    let maxValue = 0;
+    let maxSum = 0;
+
+    for (let row = 0; row < subMatrix; row ++) {
+        for (let col = 0; col < subMatrix; col ++) {
+            maxValue = Number.MIN_VALUE;
+            maxValue = Math.max(matrixFlip[row][col], maxValue);
+            maxValue = Math.max(matrixFlip[row][2 * subMatrix - col - 1], maxValue);
+            maxValue = Math.max(matrixFlip[2 * subMatrix - row - 1][col], maxValue);
+            maxValue = Math.max(matrixFlip[2 * subMatrix - row - 1][2 * subMatrix - col - 1], maxValue);
+
+            maxSum += maxValue
+        }
+    }
+
+    console.log("Max Sum of Submatrix:", maxSum);
+    return maxSum;
+}
+
+flippingMatrix(matrixFlip);
+
+lineBreak();

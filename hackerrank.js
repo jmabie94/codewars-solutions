@@ -432,3 +432,38 @@ function flippingMatrix(matrixFlip) {
 flippingMatrix(matrixFlip);
 
 lineBreak();
+
+/* Week 2 - Problem 1: Sales by Match */
+
+const saleArr = [10, 20, 20, 10, 10, 30, 50, 10, 20];
+const saleInt = saleArr.length;
+
+function sockMerchant(saleInt, saleArr) {
+    let pairs = 0
+    let sortSale = saleArr.sort((a, b) => a - b);
+    /* console.log(sortSale); */
+    let count = 1;
+
+    for (let i = 0; i < saleInt; i = i + count) {
+        count = 1
+        for (let k = i + 1; k < saleInt; k++) {
+            if (sortSale[i] === sortSale[k]) {
+                count++;
+            }
+        }
+        console.log(`Count of ${i}:`, count);
+        if (count % 2 === 0) {
+            pairs += count / 2
+        } else {
+            pairs += Math.floor(count / 2)
+        }
+    }
+
+    console.log("Total Number of Pairs:", pairs);
+    return pairs;
+}
+
+sockMerchant(saleInt, saleArr);
+
+lineBreak();
+

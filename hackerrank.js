@@ -532,3 +532,29 @@ function pageCount(totalPages, targetPage) {
 pageCount(totalPages, targetPage);
 
 lineBreak();
+
+/* Week 2 - Problem 4: Tower Breakers */
+
+const towerCount = 4;
+const towerHeight = 8;
+
+function towerBreakers(towerCount, towerHeight) {
+    let winner = 0
+
+    /* deceptively simple answer here
+    if all towers have a height of 1, 1st player has no moves, second player wins
+    if there are an even number of towers of any height other than 1, second player copies first player's moves until first player runs out of moves and second player wins
+    if there are an odd number of towers of any height other than 1, first player gets the final copy move in the first round and second player runs out of moves before first player does */
+    if (towerCount % 2 === 0 || towerHeight === 1) {
+        winner = 2
+    } else {
+        winner = 1
+    }
+
+    console.log(`If there are ${towerCount} towers of height ${towerHeight}, the winner will be Player ${winner}`)
+    return winner
+}
+
+towerBreakers(towerCount, towerHeight);
+
+lineBreak();

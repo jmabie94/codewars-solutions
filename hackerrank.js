@@ -467,3 +467,68 @@ sockMerchant(saleInt, saleArr);
 
 lineBreak();
 
+/* Week 2 - Problem 2: ZigZag Sequence */
+/* BUGGED JAVASCRIPT - NO CODE AVAILABLE TO DEBUG */
+
+/* Week 2 - Problem 3: Drawing Book */
+
+const targetPage = 5
+const totalPages = 6
+
+function pageCount(totalPages, targetPage) {
+    let frontPageDiff = targetPage - 1
+    let backPageDiff = totalPages - targetPage
+    let shorterDiff = 0
+
+    /* use the shortest # of Pages difference */
+    if (frontPageDiff < backPageDiff) {
+        shorterDiff += frontPageDiff
+    } else if (backPageDiff < frontPageDiff) {
+        /* odd numbers on the right of every two page flip, so if a number is odd and the difference is 1, that means the target is on the same two page flip, thus 0 */
+        if (totalPages % 2 !== 0 && backPageDiff === 1) {
+            shorterDiff = 0
+        /* even numbers on the left of every two page flip, so if a number is even and the difference is 1, that means the target is on the prior page, thus 1 */
+        } else if (totalPages % 2 === 0 && backPageDiff === 1 ) {
+            shorterDiff = 1
+        /* odd numbers on the right of ever two page flip, so if a number is odd and the difference is 5, that means the target is on the left side 2 flips back, not 3*/
+        } else if (backPageDiff % 2 !== 0 && backPageDiff > 1) {
+            shorterDiff += backPageDiff -1
+        } else {
+            shorterDiff += backPageDiff
+        }
+    } else if (frontPageDiff === backPageDiff) {
+        /* same logic for these, operating on the assumption that if both are equal, and the front page will always require a flip with any difference, the back is a good starting place because it has a chance of needing zero flips */
+        if (totalPages % 2 !== 0 && backPageDiff === 1) {
+            shorterDiff = 0
+        } else if (totalPages % 2 === 0 && backPageDiff === 1 ) {
+            shorterDiff = 1
+        } else if (backPageDiff % 2 !== 0 && backPageDiff > 1) {
+            shorterDiff += backPageDiff -1
+        } else {
+            shorterDiff += frontPageDiff
+        }
+    }
+
+    console.log("Pages from Front:", frontPageDiff)
+    console.log("Pages from Back:", backPageDiff)
+    console.log("Shortest Distance:", shorterDiff);
+
+    let pageFlips = 0
+
+    if (shorterDiff === 0 ) {
+        pageFlips += 0
+    } else if (shorterDiff === 1) {
+        pageFlips += shorterDiff
+    } else if (shorterDiff % 2 === 0) {
+        pageFlips += shorterDiff / 2
+    } else {
+        pageFlips += Math.ceil(shorterDiff / 2)
+    }
+
+    console.log("How Many Flips?", pageFlips);
+    return pageFlips
+}
+
+pageCount(totalPages, targetPage);
+
+lineBreak();
